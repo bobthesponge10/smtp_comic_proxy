@@ -38,6 +38,9 @@ with open(toml_file, "rb") as f:
     temp_dir = data["converter"]["temp_dir"]
     convertible_files = data["converter"]["convertible_files"]
 
+    write_emails_to_file = data["testing"]["write_emails_to_file"]
+    do_not_forward_emails = data["testing"]["do_not_forward_emails"]
+
 if not path.isdir(temp_dir):
     os.makedirs(temp_dir)
 
@@ -133,7 +136,8 @@ class PassthroughHandler:
                         
                         await convert_part(part, options)
 
-            #smtp.sendmail(envelope.mail_from, envelope.rcpt_tos, input_msg.as_bytes())
+            if not do_not_forward_emails:
+                smtp.sendmail(envelope.mail_from, envelope.rcpt_tos, input_msg.as_bytes())
             print("forwarded email")
 
 
