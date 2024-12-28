@@ -31,7 +31,7 @@ with open(toml_file, "rb") as f:
     external_smtp_password = data["email"]["external_smtp_password"]
 
     internal_host = data["email"]["internal_host"]
-    internal_port = data["internal_port"]
+    internal_port = data["email"]["internal_port"]
     internal_size_limit = data["email"]["internal_size_limit"]
 
     kcc_c2e_path = data["converter"]["kcc_c2e_path"]
