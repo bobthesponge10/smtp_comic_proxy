@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY ./smtp.py .
 
-ENTRYPOINT ["/smtp/smtp.py"]
+ENTRYPOINT ["python", "/smtp/smtp.py"]
