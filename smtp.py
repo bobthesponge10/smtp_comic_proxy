@@ -68,7 +68,7 @@ async def convert_part(part, options):
         format_ = options.get("format", "EPUB")
 
         proc = await asyncio.create_subprocess_exec(
-            sys.executable, kcc_c2e_path, "-q", "-p", device, "-f", format_, "-u", "-o", output_filename, input_filename,
+            sys.executable, kcc_c2e_path, "-q", "-p", device, "-f", format_, "-o", output_filename, input_filename,
             stderr=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE
         )
 
