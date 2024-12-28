@@ -18,6 +18,7 @@ for i in toml_file_locations:
 
 if toml_file is None:
     print("No config file found. Exiting")
+    exit(1)
 
 with open(toml_file, "rb") as f:
     data = tomllib.load(f)
